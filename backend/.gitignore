@@ -1,0 +1,11 @@
+# Node.js dependencies untuk Backend
+node_modules/
+
+# Build output atau folder build yang dihasilkan oleh proses build (misalnya TypeScript, Webpack, dll.)
+build/
+
+# Environment file untuk Backend
+.env
+
+# Log files dari backend
+*.log

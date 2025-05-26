@@ -1,0 +1,229 @@
+# Test GET /games (Protected route)
+### Mengambil semua game yang tersedia
+GET http://localhost:5000/games
+Authorization: Bearer <your_valid_token_here>
+
+---
+
+# Test GET /games/:id (Protected route)
+### Mengambil detail game dengan ID
+GET http://localhost:5000/games/1
+Authorization: Bearer <your_valid_token_here>
+
+
+---
+
+# Test POST /games (Protected route)
+### Membuat game baru
+POST http://localhost:5000/games
+Authorization: Bearer <your_valid_token_here>
+Content-Type: application/json
+
+{
+  "judul": "New Game Title",
+  "deskripsi": "Description of the new game",
+  "harga": 100,
+  "tahun_rilis": 2023,
+  "id_genre": 1
+}
+
+---
+
+# Test PATCH /games/:id (Protected route)
+### Memperbarui game dengan ID tertentu
+PATCH http://localhost:5000/games/1
+Authorization: Bearer <your_valid_token_here>
+Content-Type: application/json
+
+{
+  "judul": "Updated Game Title"
+}
+
+---
+
+# Test DELETE /games/:id (Protected route)
+### Menghapus game dengan ID tertentu
+DELETE http://localhost:5000/games/1
+Authorization: Bearer <your_valid_token_here>
+
+---
+
+
+### 
+POST  http://localhost:5001/register
+Content-Type: application/json
+
+{
+  "username": "testUser",
+  "email": "test@example.com",
+  "password": "testPassword123"
+  
+}
+
+
+
+
+# Test POST /login (Public route)
+### Login dan mendapatkan token
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+  "username": "testUser",
+  "password": "testPassword123"
+}
+
+---
+
+# Test GET /auth (Protected route)
+### Mengambil informasi auth pengguna
+GET http://localhost:5000/auth
+Authorization: Bearer <your_valid_token_here>
+
+---
+
+# Test DELETE /logout (Protected route)
+### Logout dan hapus sesi
+DELETE http://localhost:5000/logout
+Authorization: Bearer <your_valid_token_here>
+
+---
+
+# Test GET /genres (Protected route)
+### Mengambil semua genre
+GET http://localhost:5000/genres
+Authorization: Bearer <your_valid_token_here>
+
+---
+
+# Test GET /genres/:id (Protected route)
+### Mengambil genre berdasarkan ID
+GET http://localhost:5000/genres/1
+Authorization: Bearer <your_valid_token_here>
+
+---
+
+# Test POST /genres (Protected route)
+### Menambahkan genre baru
+POST http://localhost:5000/genres
+Authorization: Bearer <your_valid_token_here>
+Content-Type: application/json
+
+{
+  "nama_genre": "Adventure"
+}
+
+---
+
+# Test PATCH /genres/:id (Protected route)
+### Memperbarui genre berdasarkan ID
+PATCH http://localhost:5000/genres/1
+Authorization: Bearer <your_valid_token_here>
+Content-Type: application/json
+
+{
+  "nama_genre": "Updated Adventure"
+}
+
+---
+
+# Test DELETE /genres/:id (Protected route)
+### Menghapus genre berdasarkan ID
+DELETE http://localhost:5000/genres/1
+Authorization: Bearer <your_valid_token_here>
+
+---
+
+# Test GET /pembelian (Protected route)
+### Mengambil semua pembelian
+GET http://localhost:5000/pembelian
+Authorization: Bearer <your_valid_token_here>
+
+---
+
+# Test GET /pembelian/:id (Protected route)
+### Mengambil detail pembelian berdasarkan ID
+GET http://localhost:5000/pembelian/1
+Authorization: Bearer <your_valid_token_here>
+
+---
+
+# Test POST /pembelian (Protected route)
+### Menambahkan pembelian
+POST http://localhost:5000/pembelian
+Authorization: Bearer <your_valid_token_here>
+Content-Type: application/json
+
+{
+  "id_game": 1,
+  "id_user": 1,
+  "tanggal_pembelian": "2023-01-01T00:00:00Z"
+}
+
+---
+
+# Test PATCH /pembelian/:id (Protected route)
+### Memperbarui pembelian berdasarkan ID
+PATCH http://localhost:5000/pembelian/1
+Authorization: Bearer <your_valid_token_here>
+Content-Type: application/json
+
+{
+  "tanggal_pembelian": "2023-02-01T00:00:00Z"
+}
+
+---
+
+# Test DELETE /pembelian/:id (Protected route)
+### Menghapus pembelian berdasarkan ID
+DELETE http://localhost:5000/pembelian/1
+Authorization: Bearer <your_valid_token_here>
+
+---
+
+# Test GET /reviews (Protected route)
+### Mengambil semua ulasan
+GET http://localhost:5000/reviews
+Authorization: Bearer <your_valid_token_here>
+
+---
+
+# Test GET /reviews/:id (Protected route)
+### Mengambil ulasan berdasarkan ID
+GET http://localhost:5000/reviews/1
+Authorization: Bearer <your_valid_token_here>
+
+---
+
+# Test POST /reviews (Protected route)
+### Menambahkan ulasan untuk game
+POST http://localhost:5000/reviews
+Authorization: Bearer <your_valid_token_here>
+Content-Type: application/json
+
+{
+  "id_game": 1,
+  "id_user": 1,
+  "komentar": "Great game!",
+  "rating": 5
+}
+
+---
+
+# Test PATCH /reviews/:id (Protected route)
+### Memperbarui ulasan berdasarkan ID
+PATCH http://localhost:5000/reviews/1
+Authorization: Bearer <your_valid_token_here>
+Content-Type: application/json
+
+{
+  "rating": 4
+}
+
+---
+
+# Test DELETE /reviews/:id (Protected route)
+### Menghapus ulasan berdasarkan ID
+DELETE http://localhost:5000/reviews/1
+Authorization: Bearer <your_valid_token_here>
+
