@@ -4,6 +4,7 @@ const {DataTypes} = Sequelize;
 
 
 const Auth = db.define('auth', {
+
     username: {
         type: DataTypes.STRING,
         allowNull: false
@@ -16,9 +17,14 @@ const Auth = db.define('auth', {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true  // Menandakan bahwa email harus unik
-    }
+    },
+refreshToken: {
+    type: DataTypes.TEXT,
+    allowNull: true,  // Refresh token bisa null jika belum ada
+},
+
 }, {
-    
+    timestamps: true,  // Nonaktifkan timestamps jika tidak diperlukan
     freezeTableName: true,
     
 });
