@@ -13,10 +13,10 @@ steps:
   - name: "gcr.io/cloud-builders/gcloud"
     args:
       [
-        "run", "deploy", "be-tcc",
+        "run", "deploy", "be-rest",
         "--image", "gcr.io/$PROJECT_ID/ta-tcc-be",
         "--timeout", "3000s",
-        "--port", "4000",
+        "--port", "5000",
         "--region", "us-central1",
         "--allow-unauthenticated"
       ]
