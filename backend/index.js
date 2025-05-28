@@ -85,7 +85,7 @@ const startServer = () => {
         console.error("Error saat memulai server:", err.message);
         return;
       }
-      console.log(`Server berjalan di port ${PORT}`);
+      console.log(`Server berjalan di port ${port}`);
     });
   } catch (err) {
     console.error("Error saat memulai server:", err.message);
