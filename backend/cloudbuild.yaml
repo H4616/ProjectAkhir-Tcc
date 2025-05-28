@@ -26,17 +26,7 @@ steps:
       ]
     dir: "backend"  # Path ke folder backend
 
-  # Step 4: Set IAM policy to allow public access
-  - name: "gcr.io/cloud-builders/gcloud"
-    args:
-      [
-        "beta", "run", "services", "add-iam-policy-binding", 
-        "--region=us-central1", 
-        "--member=allUsers", 
-        "--role=roles/run.invoker", 
-        "be-rest"  # Nama layanan Cloud Run
-      ]
-    dir: "backend"
+
 
 options:
   logging: CLOUD_LOGGING_ONLY
