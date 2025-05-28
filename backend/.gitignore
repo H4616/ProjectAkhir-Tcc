@@ -9,6 +9,3 @@ build/
 
 # Log files dari backend
 *.log
-
-package-lock.json
-package.json
