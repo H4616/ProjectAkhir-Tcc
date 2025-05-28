@@ -66,7 +66,7 @@ const syncDatabase = async () => {
     }
 
     console.log("Semua model berhasil disinkronisasi.");
-    
+   syncDatabase(); 
     // Setelah sinkronisasi model berhasil, mulai server Express
     startServer();  // Panggil fungsi startServer untuk menjalankan app.listen()
     
@@ -95,4 +95,4 @@ const startServer = () => {
 
 
 // Panggil sinkronisasi database terlebih dahulu
-syncDatabase();
+
