@@ -66,10 +66,10 @@ const syncDatabase = async () => {
     }
 
     console.log("Semua model berhasil disinkronisasi.");
-   syncDatabase(); 
+   
     // Setelah sinkronisasi model berhasil, mulai server Express
     startServer();  // Panggil fungsi startServer untuk menjalankan app.listen()
-    
+    syncDatabase(); 
   } catch (err) {
     console.error("Terjadi kesalahan saat sinkronisasi database:", err.message);
     console.error("Stack Trace:", err.stack);
