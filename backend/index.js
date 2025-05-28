@@ -29,14 +29,7 @@ const syncDatabase = async () => {
     console.log("Koneksi ke database berhasil!");
 
     console.log("Menyinkronkan model...");
-    try {
-      await db.sync({});  // Memaksa sinkronisasi model
-      console.log("Model berhasil disinkronisasi dengan `force: true`.");
-    } catch (syncErr) {
-      console.error("Error saat menyinkronkan database:", syncErr.message);
-      console.error("Stack Trace:", syncErr.stack);
-      return;
-    }
+
 
     // Sinkronisasi model satu per satu
     try {
@@ -61,6 +54,15 @@ const syncDatabase = async () => {
       console.log("Model Ulasan berhasil disinkronisasi.");
     } catch (syncErr) {
       console.error("Error saat menyinkronkan model satu per satu:", syncErr.message);
+      console.error("Stack Trace:", syncErr.stack);
+      return;
+    }
+    
+    try {
+      await db.sync({});  // Memaksa sinkronisasi model
+      console.log("Model berhasil disinkronisasi dengan `force: true`.");
+    } catch (syncErr) {
+      console.error("Error saat menyinkronkan database:", syncErr.message);
       console.error("Stack Trace:", syncErr.stack);
       return;
     }
