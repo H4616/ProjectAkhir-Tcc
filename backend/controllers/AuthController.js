@@ -31,7 +31,7 @@ export const Register = async (req, res) => {
     await Auth.create({
       username,
       password: hashPassword,
-      email,
+      email
     });
 
     res.json({ msg: "Register Berhasil" });
@@ -47,7 +47,7 @@ export const Login = async (req, res) => {
     const { email, password } = req.body;
 
     const user = await Auth.findOne({
-      where: { email },
+      where: { email }
     });
 
     if (!user) return res.status(400).json({ msg: "Email tidak ditemukan" });
@@ -58,7 +58,7 @@ export const Login = async (req, res) => {
     const payload = {
       userId: user.id,
       userName: user.username,
-      userEmail: user.email,
+      userEmail: user.email
     };
 
     const accesstoken = jwt.sign(payload, process.env.ACCESS_TOKEN, {
@@ -75,9 +75,10 @@ export const Login = async (req, res) => {
     );
 
     res.cookie("refreshtoken", refreshtoken, {
-      httpOnly: true,
-
-      maxAge: 24 * 60 * 60 * 1000,
+		httpOnly: true,
+		sameSite: "None",
+		secure: true,// Hanya set cookie secure di production
+      maxAge: 24 * 60 * 60 * 1000
     });
 
     res.json({ accesstoken });

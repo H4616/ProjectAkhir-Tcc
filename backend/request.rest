@@ -46,11 +46,11 @@ Content-Type: application/json
 DELETE http://localhost:5000/games/1
 Authorization: Bearer <your_valid_token_here>
 
----
+
 
 
 ### 
-POST  http://localhost:5001/register
+POST  https://be-rest-285258878242.us-central1.run.app/register
 Content-Type: application/json
 
 {
@@ -65,7 +65,7 @@ Content-Type: application/json
 
 # Test POST /login (Public route)
 ### Login dan mendapatkan token
-POST http://localhost:5000/login
+POST https://be-rest-285258878242.us-central1.run.app/login
 Content-Type: application/json
 
 {
@@ -73,7 +73,7 @@ Content-Type: application/json
   "password": "testPassword123"
 }
 
----
+
 
 # Test GET /auth (Protected route)
 ### Mengambil informasi auth pengguna
