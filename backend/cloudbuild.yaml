@@ -1,4 +1,8 @@
 steps:
+ #step 0 menambahkan env
+  - name: "gcr.io/cloud-builders/gsutil"
+    args: ["cp", "${_ENV}", ".env"]
+    dir: "backend"  # Path ke folder backend untuk menyalin file .env
   # Step 1: Build Docker image for backend
   - name: "gcr.io/cloud-builders/docker"
     args: ["build", "-t", "gcr.io/$PROJECT_ID/tcc-be-rest", "."]
