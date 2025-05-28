@@ -2,10 +2,10 @@
 FROM node:18-alpine
 
 # Tentukan direktori kerja di dalam container
-WORKDIR /app
+WORKDIR /backend
 
 # Salin file package.json dan package-lock.json dari folder backend terlebih dahulu
-COPY backend/package.json backend/package-lock.json /app/
+
 
 # Install dependencies
 RUN npm install
