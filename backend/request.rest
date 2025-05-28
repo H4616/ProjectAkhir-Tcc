@@ -54,9 +54,9 @@ POST https://be-rest-285258878242.us-central1.run.app/register
 Content-Type: application/json
 
 {
-  "username": "testUser",
-  "email": "test@example.com",
-  "password": "testPassword123"
+  "username": "testUser1",
+  "email": "test1@example.com",
+  "password": "testPassword1235"
   
 }
 

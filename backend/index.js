@@ -96,4 +96,3 @@ const startServer = () => {
 
 // Panggil sinkronisasi database terlebih dahulu
 syncDatabase();
-startServer();
