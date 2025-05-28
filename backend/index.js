@@ -5,7 +5,7 @@ import router from './routes/IndexRoute.js'; // Pastikan path ini sesuai dengan 
 import { db, Auth, Game, Genre, Pembelian, Ulasan } from './models/IndexModel.js';
 
 
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 const app = express();
 
 app.use(
@@ -80,7 +80,7 @@ const syncDatabase = async () => {
 const startServer = () => {
   try {
     console.log("Menyiapkan server Express...");
-    app.listen(PORT, (err) => {
+    app.listen(port, (err) => {
       if (err) {
         console.error("Error saat memulai server:", err.message);
         return;
