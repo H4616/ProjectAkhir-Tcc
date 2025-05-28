@@ -5,7 +5,7 @@ import router from './routes/IndexRoute.js'; // Pastikan path ini sesuai dengan 
 import { db, Auth, Game, Genre, Pembelian, Ulasan } from './models/IndexModel.js';
 
 
-const port = process.env.PORT||8080;
+const port = process.env.PORT || 5000;
 const app = express();
 
 app.use(

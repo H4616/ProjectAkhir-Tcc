@@ -20,7 +20,7 @@ steps:
         "run", "deploy", "be-rest",  # Nama layanan Cloud Run
         "--image", "gcr.io/$PROJECT_ID/tcc-be-rest",  # Nama image Docker
         "--timeout", "300s",  # Timeout 5 menit
-        "--port", "8080",  # Port yang digunakan oleh Cloud Run
+        "--port", "5000",  # Port yang digunakan oleh Cloud Run
         "--region", "us-central1",  # Region tempat layanan Cloud Run
         "--allow-unauthenticated"  # Memberikan akses publik ke layanan
       ]
