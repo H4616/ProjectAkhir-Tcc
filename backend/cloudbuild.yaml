@@ -2,12 +2,12 @@ steps:
   # Step 1: Membuat image Docker dari aplikasi backend (berada di folder backend)
   - name: "gcr.io/cloud-builders/docker"
     args: ["build", "-t", "gcr.io/$PROJECT_ID/ta-tcc-be", "."]
-    dir: "backend"  # Menentukan folder backend untuk proses build
+    dir: "."  # Menentukan direktori root untuk build, karena Dockerfile berada di root
 
   # Step 2: Meng-upload/push image Docker ke Artifact Registry
   - name: "gcr.io/cloud-builders/docker"
     args: ["push", "gcr.io/$PROJECT_ID/ta-tcc-be"]
-    dir: "backend"  # Menentukan folder backend untuk proses push
+    dir: "."  # Menentukan folder root untuk proses push
 
   # Step 3: Melakukan deploy ke Cloud Run menggunakan image yang telah di-push
   - name: "gcr.io/cloud-builders/gcloud"
@@ -20,7 +20,7 @@ steps:
         "--region", "us-central1",
         "--allow-unauthenticated"
       ]
-    dir: "backend"  # Menentukan folder backend untuk menjalankan gcloud deploy
+    dir: "."  # Menentukan folder root untuk menjalankan gcloud deploy
 
 # Pengaturan logging untuk build hanya menggunakan Cloud Logging
 options:
