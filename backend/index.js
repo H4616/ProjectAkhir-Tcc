@@ -59,7 +59,7 @@ const syncDatabase = async () => {
     }
     
     try {
-      await db.sync({});  // Memaksa sinkronisasi model
+      await db.sync({force:true});  // Memaksa sinkronisasi model
       console.log("Model berhasil disinkronisasi dengan `force: true`.");
     } catch (syncErr) {
       console.error("Error saat menyinkronkan database:", syncErr.message);
