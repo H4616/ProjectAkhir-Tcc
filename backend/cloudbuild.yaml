@@ -13,12 +13,18 @@ steps:
   - name: "gcr.io/cloud-builders/gcloud"
     args:
       [
-        "run", "deploy", "be-rest",
-        "--image", "gcr.io/$PROJECT_ID/ta-tcc-be",
-        "--timeout", "3000s",
-        "--port", "5000",
-        "--region", "us-central1",
-        "--allow-unauthenticated"
+        "run",
+        "deploy",
+        "be-rest",
+        "--image",
+        "gcr.io/$PROJECT_ID/tcc-be-rest",
+        "--timeout",
+        "1000s",
+        "--port",
+        "5000",
+        "--region",
+        "us-central1",
+        "--allow-unauthenticated",
       ]
     dir: "backend"  # Menentukan folder backend untuk menjalankan gcloud deploy
 
