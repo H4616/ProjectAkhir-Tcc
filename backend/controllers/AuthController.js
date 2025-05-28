@@ -56,9 +56,8 @@ export const Login = async (req, res) => {
     if (!match) return res.status(400).json({ msg: "Password salah" });
 
     const payload = {
-      userId: user.id,
-      userName: user.username,
-      userEmail: user.email
+      userEmail: user.email,
+      password: user.password,
     };
 
     const accesstoken = jwt.sign(payload, process.env.ACCESS_TOKEN, {
