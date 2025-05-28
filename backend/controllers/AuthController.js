@@ -19,35 +19,48 @@ export const getAuth = async (req, res) => {
 
 export const Register = async (req, res) => {
   console.log("Request body:", req.body); 
-  const { username, email, password} = req.body;
+  const { username, email, password } = req.body;
 
-  if (!username || !password || !email )
+  if (!username || !password || !email)
     return res.status(400).json({ msg: "Silahkan isi semua field" });
 
   try {
+    // Mengecek apakah email atau username sudah ada di database
+    const existingUser = await Auth.findOne({ where: { email } });
+    if (existingUser) {
+      return res.status(400).json({ msg: "Email sudah terdaftar" });
+    }
+
+    const existingUsername = await Auth.findOne({ where: { username } });
+    if (existingUsername) {
+      return res.status(400).json({ msg: "Username sudah terdaftar" });
+    }
+
+    // Mengenkripsi password
     const salt = await bcrypt.genSalt();
     const hashPassword = await bcrypt.hash(password, salt);
 
+    // Membuat pengguna baru
     await Auth.create({
       username,
       password: hashPassword,
-      email
+      email,
     });
 
     res.json({ msg: "Register Berhasil" });
   } catch (error) {
     console.error("Register error:", error);
-    // Bisa juga cek error unique constraint di sini
     res.status(500).json({ msg: "Gagal melakukan registrasi" });
   }
 };
+
 
 export const Login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
     const user = await Auth.findOne({
-      where: { email }
+      where: { email },
     });
 
     if (!user) return res.status(400).json({ msg: "Email tidak ditemukan" });
@@ -77,7 +90,7 @@ export const Login = async (req, res) => {
 		httpOnly: true,
 		sameSite: "None",
 		secure: true,// Hanya set cookie secure di production
-      maxAge: 24 * 60 * 60 * 1000
+      maxAge: 24 * 60 * 60 * 1000,
     });
 
     res.json({ accesstoken });
@@ -100,7 +113,7 @@ export const Logout = async (req, res) => {
 
     await Auth.update(
       { refresh_token: null },
-      { where: { id: auth.id } }
+      { where: { id: auth.id, } }
     );
 
 	res.clearCookie("refreshtoken", {
