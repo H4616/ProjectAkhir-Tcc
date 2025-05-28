@@ -5,7 +5,7 @@ steps:
     dir: "backend"  # Menentukan folder backend untuk proses build
 
   # Step 2: Meng-upload/push image Docker ke Artifact Registry
-  - name: "gcr.io/cloud-builders/docker"
+  - name: "gcr.io/cloud-builders/docker-tcc"
     args: ["push", "gcr.io/$PROJECT_ID/ta-tcc-be"]
     dir: "backend"  # Menentukan folder backend untuk proses push
 
