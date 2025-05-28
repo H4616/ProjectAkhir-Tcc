@@ -1,20 +1,6 @@
-# Gunakan image Node.js sebagai base image
 FROM node:18-alpine
-
-# Tentukan direktori kerja di dalam container
-WORKDIR /backend
-
-# Salin file package.json dan package-lock.json dari folder backend terlebih dahulu
-
-
-# Install dependencies
+WORKDIR /app
+COPY . .
 RUN npm install
-
-# Salin seluruh aplikasi dari folder backend
-COPY backend /app/
-
-# Expose port yang digunakan oleh aplikasi backend
 EXPOSE 5000
-
-# Jalankan aplikasi Express.js
 CMD ["node", "index.js"]
